@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Pinyon+Script&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+  --gold: #d4af37;
+  --gold-light: #f1e5ac;
+  --black-deep: #0a0a0a;
+  --black-soft: #151515;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black-deep);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* --- CONTENEDOR MAESTRO --- */
+.app-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+}
+
+/* --- SOBRE (ENVELOPE) CORREGIDO --- */
+.envelope-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100dvh;
+  background-color: var(--black-deep);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+  transition: opacity 0.8s ease;
+}
+
+.envelope-overlay.fade-out { opacity: 0; pointer-events: none; }
+
+.envelope {
+  width: clamp(280px, 80vw, 420px);
+  height: clamp(180px, 50vw, 260px);
+  background: #1a1a1a; /* Cuerpo del sobre */
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+}
+
+/* Solapa superior interactiva */
+.envelope::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  background: #252525; /* Tono más claro para que se note la solapa */
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-bottom: 1px solid var(--gold);
+  z-index: 5;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+}
+
+.wax-seal-gold {
+  width: 80px; height: 80px;
+  background: radial-gradient(circle at 30% 30%, #d4af37, #aa8a2e);
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  border: 2px solid var(--gold-light);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6), inset 0 0 10px rgba(255,255,255,0.3);
+  transform: translateY(20px); /* Para que quede sobre la punta del triángulo */
+}
+
+/* --- SECCIONES --- */
+section {
+  width: 100%;
+  max-width: 1000px;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-section {
+  height: 100vh;
+  justify-content: center;
+}
+
+.luxury-card {
+  background-color: var(--black-soft);
+  border: 1px solid var(--gold);
+  padding: clamp(30px, 5vw, 60px);
+  width: 95%;
+  max-width: 650px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  margin: 20px auto;
+}
+
+.cursive-name {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(3rem, 12vw, 6.5rem);
+  color: var(--gold-light);
+  margin: 15px 0;
+}
+
+.gold-divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+
+.mailbox-icon-gold {
+  width: clamp(120px, 30vw, 160px);
+  height: auto;
+  margin: 20px auto;
+  display: block;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+}
+
+.hint-gold {
+  margin-top: 50px;
+  color: var(--gold);
+  letter-spacing: 4px;
+  animation: pulse 2s infinite;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/* --- TIEMPO --- */
+.time-box {
+  background: var(--black-soft);
+  border: 1px solid var(--gold);
+  padding: 15px;
+  min-width: 80px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.time-box span {
+  display: block;
+  font-size: 2rem;
+  color: var(--gold-light);
+  font-weight: bold;
+}
+
+.time-box p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.btn-gold-action {
+  display: inline-block;
+  background: var(--gold);
+  color: black;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.btn-gold-action:hover {
+  background: var(--gold-light);
+  transform: scale(1.05);
+}
