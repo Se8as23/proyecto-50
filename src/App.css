@@ -140,10 +140,11 @@ section {
 }
 
 .mailbox-icon-gold {
-  width: clamp(120px, 30vw, 160px);
-  height: auto;
-  margin: 20px auto;
   display: block;
+  margin: 20px auto;
+  width: 140px; /* Ajusta el tamaño a tu gusto */
+  height: auto;
+  filter: none; /* Elimina cualquier filtro anterior para ver los colores originales */
 }
 
 @keyframes pulse {
